@@ -4,3 +4,5 @@ git config --global user.email raissasantos123.rs33@gmail.com
 npx create-expo-app@latest StickerSmash     
 
 cd StickerSmash
+
+npm run reset-project

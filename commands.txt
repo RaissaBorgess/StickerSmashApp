@@ -5,4 +5,7 @@ npx create-expo-app@latest StickerSmash
 
 cd StickerSmash
 
+Resetar o templete ao basico
 npm run reset-project
+
+npm i

@@ -1,11 +1,15 @@
-git config --global user.name RaissaBorgess
-git config --global user.email raissasantos123.rs33@gmail.com
+git config --global user.name melana123
+git config --global user.email melana.etec@gmail.com
 
-npx create-expo-app@latest StickerSmash     
+npx create-expo-app@latest StickerSmash
 
 cd StickerSmash
+npm i
 
-Resetar o templete ao basico
 npm run reset-project
 
-npm i
+executar na web
+npx expo start --web
+
+Executar o projeto no cel
+npx expo start --localhost --android

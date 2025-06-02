@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     modalContent: {
         height: '25%',
         width: '100%',
-        backgroundColor: '#25292e',
+        backgroundColor: '#92B6F2',
         borderTopRightRadius: 18,
         borderTopLeftRadius: 18,
         position:'absolute',
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         height: '16%',
-        backgroundColor: '#464c55',
+        backgroundColor: '#414DF2',
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
         paddingHorizontal: 20,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     title: {
-        color: '#fff',
+        color: '#92B6F2',
         fontSize:16,
     }
 })

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { captureRef } from 'react-native-view-shot'
-import {View, StyleSheet } from "react-native";
+import {ImageSourcePropType, View, StyleSheet, Platform } from "react-native";
 import ImageViewer from "@/components/ImageViewer";
 import Button from "@/components/Button";
 import * as ImagePicker from 'expo-image-picker';
@@ -12,6 +12,8 @@ import EmojIList from "@/components/EmojIList";
 import EmojiSticker from "@/components/EmojiSticker";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as MediaLibrary from 'expo-media-library';
+import domtoimage from 'dom-to-image';
+
 
 const PlaceholderImage = require('@/assets/images/background-image.png');
 
@@ -40,7 +42,8 @@ const onModalClose = () => {
 }
 
 const onSaveImageAsync = async () => {
-  try {
+  if (Platform.OS !== 'web') {
+    try {
     const localUri = await captureRef(imageRef, {
       height:440,
       quality: 1,
@@ -51,6 +54,23 @@ const onSaveImageAsync = async () => {
     }
   } catch (e) {
     console.log(e)
+  }
+} else {
+  try{
+    const dataUrl = await domtoimage.toJpeg(imageRef.current, {
+      quality: 0.95,
+      width: 320,
+      height: 440,
+    });
+
+    let link = document.createElement('a');
+    link.download = 'sticker-smash.jpeg';
+    link.href = dataUrl;
+    link.click();
+  } catch (e) {
+    console.log(e);
+  }
+
   }
 }
 
@@ -80,9 +100,9 @@ const onSaveImageAsync = async () => {
       {showAppOptions ? (
         <View style={styles.optionsContainer}>
           <View style={styles.optionsRow} >
-            <IconButton icon="refresh" label="Resetar" onPress={onReset} />
+            <IconButton icon="undo" label="Reiniciar" onPress={onReset} />
             <CircleButton onPress={onAddSticker} />
-              <IconButton icon="save-alt" label="Salvar" onPress={onSaveImageAsync} />
+              <IconButton icon="archive" label="Guardar" onPress={onSaveImageAsync} />
             </View>
         </View>
       ) : (
@@ -105,7 +125,7 @@ const onSaveImageAsync = async () => {
 const styles = StyleSheet.create ({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
+    backgroundColor: '#92B6F2',
     alignItems: "center", 
   },
     imageContainer: {

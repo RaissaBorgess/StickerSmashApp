@@ -5,14 +5,14 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 export default function TabLayout() {
   return (
        <Tabs screenOptions={{
-        tabBarActiveTintColor: '#ffd33d',
+        tabBarActiveTintColor: '#414DF2',
         headerStyle: { 
-          backgroundColor: '#25292e'
+          backgroundColor: '#BBA6F5'
         },
         headerShadowVisible: false,
-        headerTintColor: '#fff',
+        headerTintColor: '#414DF2',
         tabBarStyle: {
-          backgroundColor: '#25292e',
+          backgroundColor: '#BBA6F5',
         }
        }}>
        <Tabs.Screen 
